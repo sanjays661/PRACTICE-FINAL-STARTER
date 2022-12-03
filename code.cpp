@@ -39,9 +39,8 @@ Node* insert(Node* head, int value){
    }
    else if (value < head->data)
    {
-      Node* cur = new Node{value, nullptr};
-      cur->next = head;
-      head->next = cur;
+      Node* cur = new Node{value, head};
+      head = cur;
    else
    {
       Node* cur = head;
