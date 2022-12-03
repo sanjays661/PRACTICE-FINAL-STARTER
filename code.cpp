@@ -38,20 +38,16 @@ Node* insert(Node* head, int value){
    }
    else
    {
-      Node* cur = head;
-      Node* prev = head;
-      while (cur->data < value && cur->next != nullptr)
-      {
-         cur = cur->next;
-      }
-      while (prev->next != cur)
-      {
-         prev = prev->next;
-      }
-      Node* insertion = new Node;
+      Node* insertion;
       insertion->data = value;
-      insertion->next = cur;
-      prev->next = insertion;
+      Node* current;
+      while (current->next != nullptr && current->next->data < value)
+      {
+         current = current->next;
+      }
+      Node* nextVal = current->next;
+      current->next = insertion;
+      insertion->next = nextVal;
    }
    return head;
 }
