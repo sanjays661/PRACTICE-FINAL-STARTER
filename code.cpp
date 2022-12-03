@@ -39,14 +39,19 @@ Node* insert(Node* head, int value){
    else
    {
       Node* cur = head;
-      while (cur->data < value)
+      Node* prev = head;
+      while (cur->data < value && cur->next != nullptr)
       {
          cur = cur->next;
       }
+      while (prev->next != cur)
+      {
+         prev = prev->next;
+      }
       Node* insertion = new Node;
       insertion->data = value;
-      insertion->next = cur->next->next;
-      cur->next = insertion;
+      insertion->next = cur;
+      prev->next = insertion;
    }
    return head;
 }
