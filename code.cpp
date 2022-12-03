@@ -1,5 +1,5 @@
-// Write your name
-// Write your perm number
+// Sanjay Srikanth
+// 7463078
 // Do not include a main function in this file
 // Only submit this file
 // See code.h for the descriptions of each problem
