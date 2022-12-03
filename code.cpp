@@ -41,7 +41,7 @@ Node* insert(Node* head, int value){
    Node insertion;
    insertion.data = value;
    cur->next = &insertion;
-   insertion.next = *afterInsertion;
+   insertion.next = afterInsertion;
    return head;
 }
 
