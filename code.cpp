@@ -37,10 +37,10 @@ Node* insert(Node* head, int value){
    {
       cur = cur->next;
    }
-   Node insertion = new Node;
+   Node insertion;
+   insertion.next = cur->next->next;
    insertion.data = value;
    cur->next = &insertion;
-   return head;
 }
 
 /* Problem 3: 10 points*/
