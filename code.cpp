@@ -41,6 +41,7 @@ Node* insert(Node* head, int value){
    {
       Node* cur = new Node{value, head};
       head = cur;
+   }
    else
    {
       Node* cur = head;
