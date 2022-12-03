@@ -32,16 +32,24 @@ TeaPacket* bestPacket(TeaPacket* head){
 /* Problem 2: 10 points*/
 
 Node* insert(Node* head, int value){
-   Node* cur = head;
-   while (cur->data < value)
+   if (head == nullptr)
    {
-      cur = cur->next;
+      Node* insertion;
+      insertion->data = value;
+      head = insertion;
    }
-   Node* afterInsertion = cur->next;
-   Node insertion;
-   insertion.data = value;
-   cur->next = &insertion;
-   insertion.next = afterInsertion;
+   else
+   {
+      Node* cur = head;
+      while (cur->data < value)
+      {
+         cur = cur->next;
+      }
+      Node* insertion;
+      insertion->data = value;
+      insertion->next = cur->next->next;
+      cur->next = insertion;
+   }
    return head;
 }
 
