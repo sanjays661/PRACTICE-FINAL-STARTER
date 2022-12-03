@@ -9,7 +9,22 @@
 /* Problem 1: 10 pts */
  
 TeaPacket* bestPacket(TeaPacket* head){
-   return 0;
+   int value = 0;
+   if (head->next == nullptr)
+   {
+      return head;
+   }
+   else
+   {
+      if (head->rating * head->rarity >= bestPacket(head->next)->rating * bestPacket(head->next)->rarity)
+      {
+         return head;
+      }
+      else
+      {
+         return bestPacket(head->next);
+      }
+   }
 }
 
 
@@ -17,14 +32,34 @@ TeaPacket* bestPacket(TeaPacket* head){
 /* Problem 2: 10 points*/
 
 Node* insert(Node* head, int value){
-   return 0;
+   Node* cur = head;
+   while (cur->data < value)
+   {
+      cur = cur->next;
+   }
+   Node insertion;
+   insertion.data = value;
+   insertion.next = cur->next;
+   return head;
 }
 
 /* Problem 3: 10 points*/
 
 bool isBalanced(std::string s){
-   
-   return false;
+   int aCount = 0;
+   int bCount = 0;
+   for (int i=0; i<s.size(); i++)
+   {
+      if (s.at(i) == 'A')
+      {
+         aCount++;
+      }
+      else if (s.at(i) == 'B')
+      {
+         bCount++;
+      }
+   }
+   return aCount == bCount;
 }
 
 
