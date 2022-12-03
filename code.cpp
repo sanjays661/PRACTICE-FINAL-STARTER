@@ -34,9 +34,7 @@ TeaPacket* bestPacket(TeaPacket* head){
 Node* insert(Node* head, int value){
    if (head == nullptr)
    {
-      Node* insertion;
-      insertion->data = value;
-      head = insertion;
+      head->data = value;
    }
    else
    {
@@ -45,7 +43,7 @@ Node* insert(Node* head, int value){
       {
          cur = cur->next;
       }
-      Node* insertion;
+      Node* insertion = new Node;
       insertion->data = value;
       insertion->next = cur->next->next;
       cur->next = insertion;
