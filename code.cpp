@@ -32,12 +32,12 @@ TeaPacket* bestPacket(TeaPacket* head){
 /* Problem 2: 10 points*/
 
 Node* insert(Node* head, int value){
-   if (head == nullptr)
+   if (head == nullptr) // if list is empty
    {
       Node* cur = new Node{value, nullptr};
       head = cur;
    }
-   else if (value < head->data)
+   else if (value < head->data) // if lowest value in list is greater than input value
    {
       Node* cur = new Node{value, head};
       head = cur;
@@ -50,12 +50,20 @@ Node* insert(Node* head, int value){
       {
          cur = cur->next;
       }
-      while (prev->next != cur)
+      if (cur->data < value) // if the last data value is still less than the inserted value
       {
-         prev = prev->next;
+         Node* insertion = new Node{value, nullptr};
+         cur->next = insertion;
       }
-      Node* insertion = new Node{value, cur};
-      prev->next = insertion;
+      else
+      {
+         while (prev->next != cur)
+         {
+            prev = prev->next;
+         }
+         Node* insertion = new Node{value, cur};
+         prev->next = insertion;
+      }
    }
    return head;
 }
