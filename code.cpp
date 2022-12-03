@@ -34,20 +34,26 @@ TeaPacket* bestPacket(TeaPacket* head){
 Node* insert(Node* head, int value){
    if (head == nullptr)
    {
-      head->data = value;
+      Node* cur;
+      cur->data = value;
+      head = cur;
    }
    else
    {
+      Node* cur = head;
+      Node* prev = head;
+      while (cur->data < value && cur->next != nullptr)
+      {
+         cur = cur->next;
+      }
+      while (prev->next != cur)
+      {
+         prev = prev->next;
+      }
       Node* insertion;
       insertion->data = value;
-      Node* current;
-      while (current->next != nullptr && current->next->data < value)
-      {
-         current = current->next;
-      }
-      Node* nextVal = current->next;
-      current->next = insertion;
-      insertion->next = nextVal;
+      insertion->next = cur;
+      prev->next = insertion;
    }
    return head;
 }
