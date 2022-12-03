@@ -37,12 +37,14 @@ Node* insert(Node* head, int value){
    {
       cur = cur->next;
    }
+   Node* afterInsertion = cur->next->next;
    Node insertion;
-   insertion.next = cur->next->next;
    insertion.data = value;
+   insertion.next = cur->next;
    cur->next = &insertion;
+   insertion.next = *afterInsertion;
+   return head;
 }
-
 /* Problem 3: 10 points*/
 
 bool isBalanced(std::string s){
